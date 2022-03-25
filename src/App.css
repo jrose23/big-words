@@ -158,6 +158,21 @@ body {
     padding: 0 0 0 1rem;
 }
 
+.definition-fade-in {
+    animation: fadeInDefinition 0.35s cubic-bezier(0.47, 0, 0.745, 0.715);
+}
+
+@keyframes fadeInDefinition {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 @media only screen and (min-width: 460px) {
     .header-container {
         margin-bottom: 8rem;
