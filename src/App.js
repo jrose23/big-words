@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import FadeIn from 'react-fade-in';
 import Header from './components/Header';
 import Word from './components/Word';
 import Definitions from './components/Definitions';
