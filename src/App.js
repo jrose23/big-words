@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
+import FadeIn from 'react-fade-in';
 import Header from './components/Header';
 import Word from './components/Word';
 import Definitions from './components/Definitions';
@@ -13,7 +14,7 @@ function App() {
             const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
             const data = await res.json();
             const definitionArray = [];
-
+            console.log(data.message);
             const meanings = data[0].meanings;
 
             meanings.forEach(meaning => {
@@ -37,7 +38,7 @@ function App() {
         setWord(formText);
     }
 
-    console.log(definitionData);
+    // console.log(definitionData);
 
     return (
         <>

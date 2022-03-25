@@ -9,8 +9,13 @@ function Form({ handleSubmit }) {
 
     function submitFormText(e) {
         e.preventDefault();
-        handleSubmit(formText);
-        setFormText('');
+
+        if (formText.match(/^[A-Za-z]+$/)) {
+            handleSubmit(formText);
+            setFormText('');
+        } else {
+            console.log('Enter a word!');
+        }
     }
 
     return (
