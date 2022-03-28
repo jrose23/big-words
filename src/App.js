@@ -1,5 +1,7 @@
-import { useState, useEffect } from 'react';
 import './App.css';
+import { useState, useEffect } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import defaultWords from './defaultWords';
 import Header from './components/Header';
 import Word from './components/Word';
@@ -19,6 +21,7 @@ function App() {
             const data = await res.json();
 
             if (res.status >= 400) {
+                toast('test');
                 setWord('error');
             } else {
                 const definitionArray = [];
@@ -44,6 +47,7 @@ function App() {
 
     return (
         <>
+            <ToastContainer />
             <Header handleSubmit={getWord} />
             <Word text={word} />
             <Definitions data={definitionData} />
