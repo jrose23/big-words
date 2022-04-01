@@ -21,7 +21,9 @@ function App() {
             const data = await res.json();
 
             if (res.status >= 400) {
-                toast('test');
+                toast.error('Sorry, word not found...', {
+                    position: toast.POSITION.TOP_CENTER
+                });
                 setWord('error');
             } else {
                 const definitionArray = [];
@@ -47,7 +49,7 @@ function App() {
 
     return (
         <>
-            <ToastContainer />
+            <ToastContainer theme="dark" closeButton={false} />
             <Header handleSubmit={getWord} />
             <Word text={word} />
             <Definitions data={definitionData} />

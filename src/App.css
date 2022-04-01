@@ -158,7 +158,7 @@ body {
     padding: 0 0 0 1rem;
 }
 
-.definition-fade-in {
+/* .definition-fade-in {
     animation: fadeInDefinition 0.35s cubic-bezier(0.47, 0, 0.745, 0.715);
 }
 
@@ -171,7 +171,7 @@ body {
         transform: translateY(0);
         opacity: 1;
     }
-}
+} */
 
 @media only screen and (min-width: 460px) {
     .header-container {

@@ -20,7 +20,14 @@ function Form({ handleSubmit }) {
 
     return (
         <form className="word-form" onSubmit={e => submitFormText(e)}>
-            <input className="word-form-text" onChange={getFormText} value={formText} name="word-form-text" type="text" placeholder="Enter a word..." />
+            <input
+                className="word-form-text"
+                onChange={getFormText}
+                value={formText}
+                name="word-form-text"
+                type="text"
+                placeholder="Enter a word..."
+            />
             <button className="word-form-btn">Define</button>
         </form>
     );
