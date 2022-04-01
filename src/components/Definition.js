@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Badge from './Badge';
 
 function Definition({ speech, text }) {
     return (
@@ -11,7 +12,7 @@ function Definition({ speech, text }) {
                 damping: 15
             }}
         >
-            <p className="badge badge-dark">{speech}</p>
+            <Badge color="dark" text={speech} />
             <p className="definition-text">{text}</p>
         </motion.div>
     );
