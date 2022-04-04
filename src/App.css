@@ -1,6 +1,7 @@
 :root {
     --color-dark: rgb(68, 68, 68);
     --color-light: rgb(255, 255, 255);
+    --color-alert: rgb(236, 90, 90);
 
     --font-primary: 'Fjalla One', sans-serif;
     --font-secondary: 'Roboto', sans-serif;
@@ -68,6 +69,25 @@ body {
     max-width: 100%;
 }
 
+.alert {
+    background-color: var(--color-alert);
+    color: var(--color-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1.25rem;
+    z-index: 10000;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+.alert p {
+    margin-left: 0.5rem;
+}
+
 .header-container {
     width: 100%;
     display: flex;
@@ -96,6 +116,10 @@ body {
     text-align: center;
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing);
+}
+
+.word-form-text::placeholder {
+    color: rgba(68, 68, 68, 0.5);
 }
 
 .word-form-btn {
@@ -157,21 +181,6 @@ body {
     line-height: 1.6;
     padding: 0 0 0 1rem;
 }
-
-/* .definition-fade-in {
-    animation: fadeInDefinition 0.35s cubic-bezier(0.47, 0, 0.745, 0.715);
-}
-
-@keyframes fadeInDefinition {
-    0% {
-        transform: translateY(100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-} */
 
 @media only screen and (min-width: 460px) {
     .header-container {

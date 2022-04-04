@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function Form({ handleSubmit }) {
+function Form({ handleSubmit, handleAlert }) {
     const [formText, setFormText] = useState('');
 
     function getFormText(e) {
@@ -14,7 +14,7 @@ function Form({ handleSubmit }) {
             handleSubmit(formText);
             setFormText('');
         } else {
-            console.log('Enter a word!');
+            handleAlert("Oops! That doesn't appear to be a word...");
         }
     }
 

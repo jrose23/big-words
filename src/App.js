@@ -1,8 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import defaultWords from './defaultWords';
+import Alert from './components/Alert';
 import Header from './components/Header';
 import Word from './components/Word';
 import Definitions from './components/Definitions';
@@ -10,10 +9,8 @@ import Definitions from './components/Definitions';
 function App() {
     const [word, setWord] = useState(defaultWords());
     const [definitionData, setDefinitionData] = useState([]);
-
-    function getWord(formText) {
-        setWord(formText);
-    }
+    const [showAlert, setShowAlert] = useState(false);
+    const [alertText, setAlertText] = useState('');
 
     useEffect(() => {
         async function getWordData() {
@@ -21,10 +18,7 @@ function App() {
             const data = await res.json();
 
             if (res.status >= 400) {
-                toast.error('Sorry, word not found...', {
-                    position: toast.POSITION.TOP_CENTER
-                });
-                setWord('error');
+                handleAlert("Sorry! We couldn't find that word...");
             } else {
                 const definitionArray = [];
                 const meanings = data[0].meanings;
@@ -47,10 +41,24 @@ function App() {
         getWordData();
     }, [word]);
 
+    function handleSubmit(formText) {
+        setWord(formText);
+    }
+
+    function handleAlert(text) {
+        setAlertText(text);
+        setShowAlert(true);
+        setWord('error');
+
+        setTimeout(() => {
+            setShowAlert(false);
+        }, 3500);
+    }
+
     return (
         <>
-            <ToastContainer theme="dark" closeButton={false} />
-            <Header handleSubmit={getWord} />
+            {showAlert && <Alert text={alertText} showAlert={showAlert} />}
+            <Header handleSubmit={handleSubmit} handleAlert={handleAlert} />
             <Word text={word} />
             <Definitions data={definitionData} />
         </>

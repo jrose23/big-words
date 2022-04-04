@@ -3,10 +3,9 @@ function defaultWords() {
         'Palindrome',
         'Stereoscopic',
         'Vermillion',
-        'Benchmark',
         'Terrestrial',
         'Hexadecimal',
-        'Monotype',
+        'Monochromatic',
         'Soliloquy',
         'Pneumatic',
         'Bombastic',
@@ -15,7 +14,16 @@ function defaultWords() {
         'Anomalous',
         'Weevil',
         'Nomenclature',
-        'Quadratic'
+        'Quadratic',
+        'Amphisbaena',
+        'Nonplussed',
+        'Pantagruelian',
+        'Ouroboros',
+        'Rendezvous',
+        'Troglodyte',
+        'Fastidious',
+        'Prototypical',
+        'Concatenation'
     ];
 
     return defaultWordsArray[Math.floor(Math.random() * defaultWordsArray.length)];
