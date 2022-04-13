@@ -16,7 +16,6 @@ function Form({ handleSubmit, handleAlert, setDefinitionData }) {
         const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
         const data = await res.json();
 
-        // console.log(data[0].word);
         setDefinitionData(data);
     }
 
