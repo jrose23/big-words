@@ -21,6 +21,11 @@ function Form({ setDefinitionData }) {
 
     function submitFormText(e) {
         e.preventDefault();
+
+        if (formText.length === 0) {
+            getWordData();
+        }
+
         getWordData(formText);
         setFormText('');
     }
