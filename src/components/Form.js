@@ -23,7 +23,7 @@ function Form({ setDefinitionData }) {
         e.preventDefault();
 
         if (formText.length === 0) {
-            getWordData();
+            getWordData(0);
         }
 
         getWordData(formText);
