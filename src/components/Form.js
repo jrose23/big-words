@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import defaultWords from '../defaultWords';
 
-function Form({ handleSubmit, handleAlert, setDefinitionData }) {
+function Form({ setDefinitionData }) {
     const [formText, setFormText] = useState('');
 
     useEffect(() => {
