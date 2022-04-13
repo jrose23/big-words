@@ -1,21 +1,29 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import defaultWords from '../defaultWords';
 
-function Form({ handleSubmit, handleAlert }) {
+function Form({ handleSubmit, handleAlert, setDefinitionData }) {
     const [formText, setFormText] = useState('');
+
+    useEffect(() => {
+        getWordData(defaultWords());
+    }, []);
 
     function getFormText(e) {
         setFormText(e.target.value);
     }
 
+    async function getWordData(word) {
+        const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
+        const data = await res.json();
+
+        // console.log(data[0].word);
+        setDefinitionData(data);
+    }
+
     function submitFormText(e) {
         e.preventDefault();
-
-        if (formText.match(/^[A-Za-z]+$/)) {
-            handleSubmit(formText);
-            setFormText('');
-        } else {
-            handleAlert("Oops! That doesn't appear to be a word...");
-        }
+        getWordData(formText);
+        setFormText('');
     }
 
     return (
