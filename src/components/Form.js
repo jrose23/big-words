@@ -5,33 +5,33 @@ function Form({ setDefinitionData }) {
     const [formText, setFormText] = useState('');
 
     useEffect(() => {
-        getWordData(defaultWords());
+        getDefinitionData(defaultWords());
     }, []);
 
     function getFormText(e) {
         setFormText(e.target.value);
     }
 
-    async function getWordData(word) {
+    async function getDefinitionData(word) {
         const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
         const data = await res.json();
 
         setDefinitionData(data);
     }
 
-    function submitFormText(e) {
+    function submitForm(e) {
         e.preventDefault();
 
         if (formText.length === 0) {
-            getWordData(0);
+            getDefinitionData(0);
         }
 
-        getWordData(formText);
+        getDefinitionData(formText);
         setFormText('');
     }
 
     return (
-        <form className="word-form" onSubmit={e => submitFormText(e)}>
+        <form className="word-form" onSubmit={e => submitForm(e)}>
             <input
                 className="word-form-text"
                 onChange={getFormText}
