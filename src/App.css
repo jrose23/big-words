@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
 :root {
     --color-dark: rgb(68, 68, 68);
     --color-light: rgb(255, 255, 255);
@@ -107,6 +109,8 @@ body {
 .word-form-text {
     height: 3rem;
     border: var(--border);
+    border-radius: 0;
+    -webkit-border-radius: 0;
     outline: none;
     padding: 1rem;
     font-family: var(--font-secondary-cond);
@@ -133,6 +137,8 @@ body {
     text-transform: uppercase;
     padding: 0 1rem;
     border: var(--border);
+    border-radius: 0;
+    -webkit-border-radius: 0;
     border-left: 0;
     outline: none;
     min-width: 100%;
